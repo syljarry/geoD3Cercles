@@ -79,16 +79,14 @@ var getDispo = function (dispo) {
 var getYear = function () {
     return d3.select(".yearselect").text();
 };
-//fonction provisoire renvoyant le type de carte selectionné
-var getType = function(){
-    return "cercles proportionels";
-};
-
-//fonction provisoire retournant le type de Legend selectionné
-var getLegend = function() {
-    return Legend_cp;
-};
-//fonction provisoire permettant de récupérer la description selon le type de données selectionné
+/**
+ * Permet de récupérer la description associée au type de disposition passée en parametre.
+ * Les description se trouve dans un tableau initialisé dans les parametres.
+ * @param dispo
+ *          Type de disposition dont on veut récupérer la description.
+ * @returns {string}
+ *          chaine de caractere contenant la description.
+ */
 var getDescription = function(dispo) {
     switch (dispo) {
         case(racine_tot):
@@ -122,10 +120,9 @@ var getDescription = function(dispo) {
 var calc_rayon = function (d) {
     return 3 * Math.sqrt(d / Math.PI);
 };
-
 /**
  * Cherche la position dans le tableau de carte,
- * de l'objet carte qui correspond a l'id passer en parametre.
+ * de l'objet carte qui correspond a l'id passé en parametre.
  *
  * @param id
  *          identifiant de l'objet carte que l'on veut trouver
@@ -139,7 +136,7 @@ var indexTableau = function(id) {
 };
 
 /**
- * Supprime la carte correspondant à l'id passer en parametre.
+ * Supprime la carte correspondant à l'id passé en parametre.
  * Supprime l'objet du tableau, ainsi que la <div> correspondante.
  * Reposition également toute les autres cartes, en appellant designCarte().
  *
@@ -161,7 +158,9 @@ function suppressionCarte(id) {
     designCarte(tableauCarte[indexTableau(id)]);
 }
 
-//Affiche une nouvelle fenetre (popup) avec les conseil d'utilisation
+/**
+ * Affiche une nouvelle fenetre (popup) avec les conseils d'utilisation.
+ */
 function open_infos() {
     var strWindowFeatures = "resizable=yes,scrollbars=yes, top=10, left=10, width=300, height=650";
     window.open('info.html', 'Info', strWindowFeatures);

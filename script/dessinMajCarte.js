@@ -293,7 +293,7 @@ var maj_cercles = function (json, carte) {
 /**
  * Dessine la carte passée en parametre en appelant les fonctions de dessin, et en
  * ce servant des fichiers de données.
- * Ne dessine les cartes que si elle ne sont pas déjà affichée.
+ * Ne dessine les cartes que si elle ne sont pas déjà affichée. Grace a la variable isShown
  *
  * @param carte
  *             Objet carte à dessiner

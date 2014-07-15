@@ -62,7 +62,7 @@ function creationNewCarte() {
     var titre = titre_leg;
     var sousTitre = sous_titre_leg;
     var type = type_leg;
-    var donneeLegend = getLegend();
+    var donneeLegend = Legend_cp;
     var description = getDescription(getDispo(tableauNomDonnee[0]));
     /* Width and height for the legend*/
     var widthLegend = 150;

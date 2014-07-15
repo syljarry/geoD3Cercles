@@ -1,13 +1,13 @@
 /**
  * Création des premiers éléments comme la fleche des années.
- * Ajout des listener sur les ronds des années et sur les boutons radio.
+ * Ajout des listener sur les ronds des années.
  * Creation de la premiere carte.
  *
  * @author Sylvain JARRY
  */
 
 /* affiche une ligne (rectangle) pour les années */
-var ligne = svg_y.append("rect")
+svg_y.append("rect")
     .attr("x", 10)
     .attr("y", 10)
     .attr("width", wy - 20)// -20 pour ne pas dépasser de la fleche.

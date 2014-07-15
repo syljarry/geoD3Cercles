@@ -6,9 +6,10 @@
 
 /**
  * Zoom et pan sur les cartes. zoom avec la molette souris, pan en cliqué glissant souris.
- * Le zoom est synchroniser entre toute les cartes, excepté sur celles dont la case "Désynchroniser" est coché.
+ * Le zoom est synchronisé entre toute les cartes, excepté sur celles dont la case "Désynchroniser" est coché.
  * C'est à dire si synchro = false.
- *
+ * Lors de l'appel de cette fonction, l'objet Carte n'est pas encore créé, on ne peut donc pas l'utiliser pour récuperer
+ * les parametres de la carte. On utilise donc l'id de la carte pour la retrouver dans le tableau des cartes.
  * @param id
  *          identifiant de la carte sur laquelle on clique actuellement.
  */
@@ -34,7 +35,6 @@ function zoomFunction(id) {
         zoomTranslateCircle(carte);
     }
 }
-
 /**
  * Permet d'effectuer un zoom semantic sur la carte placée en parametre.
  * Les cercles représentant les données sont espacé entre eux proportionnelement à la
@@ -47,8 +47,8 @@ function zoomTranslateCircle(carte) {
     //parcour tout les cercles du groupe.
     carte.circlegroupe.selectAll("circle").each(function () {
         var elt = d3.select(this);
-        /* Pour chaque cercle on ajoute un attribut transforme, avec pour valeur de translate
-         * la (position du cercle selectionné mis a l'échelle) - (la position du cercle selectionné).
+        /* Pour chaque cercles on ajoute un attribut transforme, avec pour valeur de translate
+         * la "position du cercle selectionné mis a l'échelle" moins "la position du cercle selectionné".
          * De cette maniere les cercles restent au milieu du pays auquel ils appartiennent.
          */
         elt.attr("transform", function () {
@@ -86,6 +86,8 @@ function synchroZoom(carte) {
  * Permet de revenir a la position d'origine du zoom c'est à dire sans translation et un scale de 0
  * On vérifie si la case desynchro du zoom est coché, on vérifie aussi que l'attribut transform n'est pas nul
  * ou vide sinon cela cause des erreurs.
+ * Lors de l'appel de cette fonction, l'objet Carte n'est pas encore créé, on ne peut donc pas l'utiliser pour récuperer
+ * les parametres de la carte. On utilise donc l'id de la carte pour la retrouver dans le tableau des cartes.
  *
  * @param id
  *          Identifiant de la carte sur laquel on vient de double cliquer.
@@ -115,7 +117,7 @@ function resetZoom(id) {
 }
 
 /**
- * Modifie la variable "synchro" de l'objet carte correspondant au paramettre id
+ * Modifie la variable "synchro" de l'objet carte correspondant au paramettre id.
  * Par défaut la variable est a true, on la passe donc a false lorsque l'on veut
  * désynchroniser une carte par rapport aux autres.
  *
