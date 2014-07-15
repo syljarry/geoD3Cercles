@@ -1,6 +1,6 @@
 /**
  * Liaison des données entre csv et Json, utilisé pour la lecture et
- * la représentation des données.
+ * la représentation des données sous formes de cercles.
  *
  * @author Sylvain JARRY
  */

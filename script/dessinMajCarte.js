@@ -123,7 +123,7 @@ var maj_Legend = function(carte) {
 
 /**
  * Dessine les pays (utilisé pour dessiner la carte la 1ère fois)
- * Associe une couleur différente a un pay si des données le concerne ou non
+ * Associe une couleur différente a un pays si des données le concerne ou non
  *
  * @param json
  *              fichier json comprenant la position des pays

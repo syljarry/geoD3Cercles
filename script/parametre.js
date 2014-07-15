@@ -27,6 +27,9 @@ var evide = 100;	// nb de volontaires à partir duquel le cercle est évidé
 var duree_transition = 1000;	// durée de la transition en millisecondes quand on change de données à afficher
 var duree_transition2 = 500;    //durée de la transition lors du repositionnement des cartes.
 var Legend_cp = [12, 98, 250, 421]; // liste des valeurs à afficher dans la légende de la carte en cercles proportionnels
+var titre_leg = "Légende et explications"; // titre de la légende
+var sous_titre_leg = "Dispositif de volontariat";
+var type_leg = "Ceci est une carte en cercles proportionnels";
 var tableauCarte = [];	//tableau contenant chaque carte affichée.
 var compteur = 0; // utilisé pour la mise en page des cartes, sert a compte les doublet et triplet de carte
 var etage = 1; //utilisé pour la mise en page des cartes, sert a descendre d'un étage (d'une ligne) selon la disposition des cartes.
@@ -55,6 +58,8 @@ var xScale = d3.scale.linear()
 /* la projection dans laquelle afficher les données : Robinson */
 var projection = d3.geo.robinson()
     .scale(150);
+var minzoom = 0.5;
+var maxzoom = 8;
 /* On crée un nouvel objet path qui traduit le GeoJSON en SVG */
 var path = d3.geo.path()
     .projection(projection);
